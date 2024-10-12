@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-fabeacbc","path":"/article/codelanguage/Python/B-%E4%BB%A3%E7%A0%81%E5%B0%8F%E7%9F%A5%E8%AF%86%E7%82%B9/","title":"B 代码小知识点","lang":"zh-CN","frontmatter":{"title":"B 代码小知识点","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-2f2bc2e8","path":"/article/ai/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0-%E6%9D%8E%E6%B2%90/A-%E5%BC%95%E8%A8%80/","title":"A 引言","lang":"zh-CN","frontmatter":{"title":"A 引言","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

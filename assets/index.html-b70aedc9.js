@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-ac7c1e0e","path":"/article/CUDA/K-%E5%AE%9E%E6%88%98%E4%BE%8B%E5%AD%90/","title":"K 实战例子","lang":"zh-CN","frontmatter":{"title":"K 实战例子","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

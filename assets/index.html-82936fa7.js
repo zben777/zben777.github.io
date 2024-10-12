@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-58e26f6f","path":"/article/CUDA/K-%E5%AE%9E%E6%88%98%E4%BE%8B%E5%AD%90/C-RAFT/","title":"C R A F T","lang":"zh-CN","frontmatter":{"title":"C R A F T","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

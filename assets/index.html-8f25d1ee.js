@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-22fe0966","path":"/article/CUDA/K-%E5%AE%9E%E6%88%98%E4%BE%8B%E5%AD%90/A-GNND/","title":"A G N N D","lang":"zh-CN","frontmatter":{"title":"A G N N D","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

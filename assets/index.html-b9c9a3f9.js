@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-a3f10b88","path":"/logs/B-%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/","title":"B 环境配置","lang":"zh-CN","frontmatter":{"title":"B 环境配置","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-718c497a","path":"/article/FullStack/%E5%B0%9A%E7%A1%85%E8%B0%B7-JAVA/D-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/","title":"D 项目实战","lang":"zh-CN","frontmatter":{"title":"D 项目实战","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

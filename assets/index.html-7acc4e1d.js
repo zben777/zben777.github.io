@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-5ab29b6b","path":"/logs/A-%E9%80%9A%E7%94%A8%E5%B0%8F%E6%8A%80%E6%9C%AF/","title":"A 通用小技术","lang":"zh-CN","frontmatter":{"title":"A 通用小技术","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

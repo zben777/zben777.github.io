@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-302e499a","path":"/article/mathmodeling/E-%E4%BC%98%E5%8C%96%E4%B8%8E%E6%8E%A7%E5%88%B6/","title":"E 优化与控制","lang":"zh-CN","frontmatter":{"title":"E 优化与控制","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

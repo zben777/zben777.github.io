@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-36fd5730","path":"/article/codelanguage/C/B-C__Primer/","title":"B C Primer","lang":"zh-CN","frontmatter":{"title":"B C Primer","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

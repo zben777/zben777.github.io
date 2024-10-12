@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-46b85797","path":"/guide/A-%E7%94%B5%E8%84%91%E8%BF%81%E7%A7%BB%E5%AF%BC%E8%88%AA/","title":"A 电脑迁移导航","lang":"zh-CN","frontmatter":{"title":"A 电脑迁移导航","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

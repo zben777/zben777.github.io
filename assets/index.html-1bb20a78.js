@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-7e4afed8","path":"/article/mathmodeling/C-%E7%9B%B8%E5%85%B3%E6%80%A7%E5%88%86%E6%9E%90/","title":"C 相关性分析","lang":"zh-CN","frontmatter":{"title":"C 相关性分析","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

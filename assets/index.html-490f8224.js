@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-5555271b","path":"/logs/Z-Ubuntu%E7%9F%A5%E8%AF%86/","title":"Z Ubuntu知识","lang":"zh-CN","frontmatter":{"title":"Z Ubuntu知识","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

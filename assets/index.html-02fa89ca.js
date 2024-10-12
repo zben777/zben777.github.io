@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-1b30a2cc","path":"/article/FullStack/%E5%B0%9A%E7%A1%85%E8%B0%B7-JAVA/A-%E6%A0%B8%E5%BF%83%E5%9F%BA%E7%A1%80/","title":"A 核心基础","lang":"zh-CN","frontmatter":{"title":"A 核心基础","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

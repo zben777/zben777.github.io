@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-bc39e67e","path":"/article/reading/A-%E5%90%91%E9%87%8F%E6%95%B0%E6%8D%AE%E5%BA%93/X-PQ/","title":"X P Q","lang":"zh-CN","frontmatter":{"title":"X P Q","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

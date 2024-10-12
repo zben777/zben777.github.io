@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-65c06cc2","path":"/article/CUDA/K-%E5%AE%9E%E6%88%98%E4%BE%8B%E5%AD%90/B-XGNND/XGNND.html","title":"","lang":"zh-CN","frontmatter":{"seo":false,"head":[]},"headers":[],"git":{"createdTime":null,"updatedTime":null,"contributors":[]},"readingTime":{"minutes":0,"words":0},"filePathRelative":"article/CUDA/K-实战例子/B-XGNND/XGNND.md"}');export{e as data};

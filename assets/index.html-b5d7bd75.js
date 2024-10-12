@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-237e68d0","path":"/article/mathmodeling/D-%E5%88%86%E7%B1%BB%E4%B8%8E%E5%88%A4%E5%88%AB/","title":"D 分类与判别","lang":"zh-CN","frontmatter":{"title":"D 分类与判别","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

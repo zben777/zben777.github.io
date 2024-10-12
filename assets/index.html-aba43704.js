@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-76a564fa","path":"/article/working/B-%E4%B8%93%E4%B8%9A%E5%9F%BA%E7%A1%80%E8%AF%BE/","title":"B 专业基础课","lang":"zh-CN","frontmatter":{"title":"B 专业基础课","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

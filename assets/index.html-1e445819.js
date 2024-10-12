@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-d11aadd8","path":"/article/CUDA/E-CUDA%E5%BA%93%E5%87%BD%E6%95%B0/","title":"E C U D A库函数","lang":"zh-CN","frontmatter":{"title":"E C U D A库函数","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};

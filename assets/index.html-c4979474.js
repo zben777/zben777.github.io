@@ -1,0 +1,1 @@
+const e=JSON.parse('{"key":"v-6f244348","path":"/article/mathmodeling/B-%E8%AF%84%E4%BB%B7%E4%B8%8E%E5%86%B3%E7%AD%96/","title":"B 评价与决策","lang":"zh-CN","frontmatter":{"title":"B 评价与决策","article":false,"feed":false,"sitemap":false,"seo":false,"head":[]},"headers":[],"git":{},"readingTime":{"minutes":0,"words":1},"filePathRelative":null}');export{e as data};
