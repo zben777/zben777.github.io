@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="dark" data-page-node-id="uGGCis7RsRYbYZE7tpoV5y"><head data-page-node-id="R7Vvm85pxntrH4RV4ka8vO">
+<meta charset="UTF-8" data-page-node-id="i2ecK7xogZKLtriB32g7Jm">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" data-page-node-id="NKDki9zX7Kj20blRhKyXbo">
+<title>博客学习导览 · 知识地图</title>
+<style>
+:root{--font:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;--mono:"SF Mono",ui-monospace,Menlo,Consolas,monospace}
+html[data-theme="dark"]{--bg:#0a0e14;--panel:#0e141d;--panel2:#111927;--border:#1d2838;--text:#e7edf5;--muted:#8fa0b3;--faint:#5c6b7e;--accent:#6ea8ff;--accent-soft:rgba(110,168,255,.13);--link:#6ea8ff;--link-hover:#9cc3ff;--code-bg:#151d29;--shadow:0 10px 30px rgba(0,0,0,.35);--row-hover:#121a27}
+html[data-theme="light"]{--bg:#ffffff;--panel:#f7f8fa;--panel2:#eef1f6;--border:#e4e7ee;--text:#0f172a;--muted:#55627a;--faint:#93a1b5;--accent:#3b63e8;--accent-soft:rgba(59,99,232,.08);--link:#2f5bd8;--link-hover:#1d3f9e;--code-bg:#f2f4f8;--shadow:0 10px 30px rgba(20,30,60,.08);--row-hover:#f4f6fa}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;transition:background .25s,color .25s}
+a{color:var(--link);text-decoration:none}a:hover{color:var(--link-hover);text-decoration:underline}
+.topbar{position:fixed;top:0;left:0;right:0;height:52px;z-index:50;display:flex;align-items:center;gap:12px;padding:0 16px;border-bottom:1px solid var(--border);background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.topbar .brand{display:flex;align-items:center;gap:9px;font-weight:650;font-size:14.5px;letter-spacing:.2px}
+.topbar .brand .logo{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;background:linear-gradient(135deg,#6ea8ff,#8b7bff);color:#fff;font-size:12px;font-weight:800}
+.topbar .spacer{flex:1}
+.theme-btn{border:1px solid var(--border);background:var(--panel);color:var(--text);border-radius:8px;padding:5px 12px;font-size:13px;cursor:pointer;display:flex;align-items:center;gap:6px;transition:border-color .2s,background .2s}
+.theme-btn:hover{border-color:var(--accent)}
+.menu-btn{display:none;border:1px solid var(--border);background:var(--panel);color:var(--text);border-radius:8px;padding:5px 10px;cursor:pointer;font-size:14px}
+.export-btn{display:flex;align-items:center;gap:5px;border:1px solid var(--border);background:var(--panel);color:var(--text);border-radius:8px;padding:5px 11px;font-size:13px;cursor:pointer;transition:border-color .2s,background .2s}
+.export-btn:hover{border-color:var(--accent);color:var(--accent)}
+.layout{display:flex;padding-top:52px;min-height:100vh}
+aside.sidebar{width:272px;flex-shrink:0;position:sticky;top:52px;height:calc(100vh - 52px);overflow-y:auto;padding:20px 12px 40px;border-right:1px solid var(--border);background:var(--bg);transition:transform .25s}
+.sidebar::-webkit-scrollbar{width:8px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--border);border-radius:4px}
+.nav-group{margin-bottom:18px}
+.nav-group .nav-cat{font-size:11px;font-weight:700;letter-spacing:1.2px;color:var(--faint);text-transform:uppercase;padding:0 10px;margin-bottom:6px}
+.nav-item{display:flex;align-items:center;gap:8px;padding:6px 10px;border-radius:7px;color:var(--muted);font-size:13.5px;cursor:pointer;border-left:2px solid transparent}
+.nav-item .dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;opacity:.55}
+.nav-item:hover{background:var(--panel);color:var(--text)}
+.nav-item.active{color:var(--text);background:var(--accent-soft);border-left-color:var(--accent);font-weight:600}
+.nav-item.active .dot{opacity:1}
+main.content{flex:1;min-width:0;max-width:880px;margin:0 auto;padding:40px 48px 96px}
+.content-head{margin-bottom:34px}
+.content-head h1{font-size:30px;font-weight:800;letter-spacing:-.3px;line-height:1.25}
+.content-head .sub{margin-top:10px;color:var(--muted);font-size:15px}
+.content-head .meta{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:11.5px;color:var(--muted);border:1px solid var(--border);border-radius:99px;padding:3px 10px}
+.cat-summary{margin:26px 0 6px;display:flex;gap:8px;flex-wrap:wrap}
+.cat-summary a{font-size:12px;color:var(--muted);border:1px solid var(--border);border-radius:99px;padding:3px 11px;text-decoration:none}
+.cat-summary a:hover{color:var(--text);border-color:var(--accent)}
+section.topic{margin-top:44px}
+.topic h2{display:flex;align-items:baseline;gap:8px;font-size:21px;font-weight:750;letter-spacing:-.2px;scroll-margin-top:72px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.topic h2 .anchor{color:var(--faint);font-weight:400;opacity:0;transition:opacity .15s;font-size:16px}
+.topic h2:hover .anchor{opacity:1}
+.topic h2 .anchor:hover{text-decoration:none;color:var(--accent)}
+.topic .cat-desc{margin-top:10px;color:var(--muted);font-size:13.5px}.topic .cat-links{margin-top:10px;display:flex;flex-wrap:wrap;gap:8px;row-gap:8px;align-items:center}.clink{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;padding:5px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.10);background:rgba(255,255,255,.03);color:var(--muted,#9aa);text-decoration:none;transition:.15s}.clink .dot{width:7px;height:7px;border-radius:50%;flex:none}.clink .src{font-weight:600;letter-spacing:.5px}.clink.src-zhihu .dot{background:#4e8cff}.clink.src-zhihu{border-color:rgba(78,140,255,.35);background:rgba(78,140,255,.08)}.clink.src-blog .dot{background:#35c46f}.clink.src-blog{border-color:rgba(53,196,111,.35);background:rgba(53,196,111,.08)}.clink.src-cnblogs .dot{background:#22b8b0}.clink.src-cnblogs{border-color:rgba(34,184,176,.35);background:rgba(34,184,176,.08)}.clink.src-bili .dot{background:#ff6ea8}.clink.src-bili{border-color:rgba(255,110,168,.35);background:rgba(255,110,168,.08)}.clink.src-csdn .dot{background:#ff5c5c}.clink.src-csdn{border-color:rgba(255,92,92,.35);background:rgba(255,92,92,.08)}.clink.src-other .dot{background:#9aa}a.clink:hover{filter:brightness(1.25);color:var(--fg,#fff)}.clink.link-todo{opacity:.5;border-style:dashed}
+html[data-theme="light"] .clink{border-color:var(--border);background:#fff;color:var(--muted)}
+html[data-theme="light"] .clink.src-zhihu{border-color:rgba(59,99,232,.4);background:rgba(59,99,232,.06)}
+html[data-theme="light"] .clink.src-blog{border-color:rgba(5,150,105,.4);background:rgba(5,150,105,.06)}
+html[data-theme="light"] .clink.src-cnblogs{border-color:rgba(13,148,136,.4);background:rgba(13,148,136,.06)}
+html[data-theme="light"] .clink.src-bili{border-color:rgba(219,39,119,.35);background:rgba(219,39,119,.05)}
+html[data-theme="light"] .clink.src-csdn{border-color:rgba(220,38,38,.35);background:rgba(220,38,38,.05)}
+html[data-theme="light"] a.clink:hover{color:var(--text)}
+.tbl-wrap{margin-top:16px;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--panel)}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+thead th{text-align:left;font-size:11.5px;font-weight:700;letter-spacing:.8px;color:var(--faint);text-transform:uppercase;background:var(--panel2);padding:9px 14px;border-bottom:1px solid var(--border)}
+tbody td{padding:11px 14px;border-bottom:1px solid var(--border);vertical-align:top}
+tbody tr:last-child td{border-bottom:none}
+tbody tr{transition:background .15s}
+tbody tr:hover{background:var(--row-hover)}
+td.col-type{width:96px}
+td.col-desc{color:var(--muted);min-width:220px}
+td.col-res{min-width:170px}
+.res-name{font-weight:600;color:var(--text);font-size:13.5px;word-break:break-word}
+a.res-name:hover{color:var(--accent);text-decoration:underline}
+a.res-name::after{content:" ↗";font-size:11px;color:var(--faint)}
+span.res-name{color:var(--text)}
+.res-extra{display:flex;flex-direction:column;gap:3px;margin-top:6px}
+.res-extra a{font-size:12.5px;color:var(--accent)}
+.pill{display:inline-block;font-size:11.5px;font-weight:600;padding:2px 9px;border-radius:99px;white-space:nowrap;line-height:1.6}
+.pill.module{background:rgba(110,168,255,.14);color:#5fa5f0}
+.pill.doc{background:rgba(94,214,180,.14);color:#4fd0a8}
+.pill.course{background:rgba(255,158,120,.15);color:#f0a06a}
+.pill.video{background:rgba(178,132,255,.14);color:#b08aff}
+.pill.paper{background:rgba(244,114,150,.13);color:#f47ea0}
+.pill.repo{background:rgba(250,204,21,.15);color:#e8c24a}
+html[data-theme="light"] .pill.module{background:rgba(59,99,232,.1);color:#2f5bd8}
+html[data-theme="light"] .pill.doc{background:rgba(5,150,105,.1);color:#047857}
+html[data-theme="light"] .pill.course{background:rgba(234,88,12,.1);color:#c2410c}
+html[data-theme="light"] .pill.video{background:rgba(126,58,220,.1);color:#6d28c9}
+html[data-theme="light"] .pill.paper{background:rgba(225,29,72,.08);color:#be123c}
+html[data-theme="light"] .pill.repo{background:rgba(161,98,7,.1);color:#92400e}
+.footer-note{margin-top:70px;padding:16px 18px;border:1px dashed var(--border);border-radius:12px;background:var(--panel);color:var(--muted);font-size:12.8px;line-height:1.8}
+.overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:40}
+@media (max-width:1000px){aside.sidebar{position:fixed;left:0;top:52px;bottom:0;z-index:45;transform:translateX(-105%);box-shadow:var(--shadow)}aside.sidebar.open{transform:translateX(0)}.menu-btn{display:block}.overlay.show{display:block}main.content{max-width:none;padding:32px 22px 80px}}
+</style>
+</head>
+<body data-page-node-id="WsgrnyXhGON1FmdxMz60S0">
+<div class="topbar" data-page-node-id="mrJmEo8VKJ3kem0azxcwwL">
+  <button class="menu-btn" id="menuBtn" aria-label="菜单" data-page-node-id="Vzr0NtAaO8rNcVohqM2VPt">☰</button>
+  <div class="brand" data-page-node-id="arBbBlLn0zgnYEYgFPvx4R"><span class="logo" data-page-node-id="QFZiIEgSyYt8PX5aC1gpFu">B</span><span data-page-node-id="PQ7BHHrzfscq1FnHmaDJLZ">博客学习导览 · 知识地图</span></div>
+  <div class="spacer" data-page-node-id="9H0XfxrVWbfPAa2qxBzC2p"></div>
+  <button class="theme-btn" id="themeBtn" data-page-node-id="b2zGt3rNkL791mUO8j01Hy">🌙 暗色</button>
+  <button class="export-btn" id="exportBtn" data-page-node-id="exportBtn1">⬇ 导出HTML</button>
+</div>
+<div class="overlay" id="overlay" data-page-node-id="BXRL9cFfoXl6sQNxZOVBva"></div>
+<div class="layout" data-page-node-id="sGaXVfwdMy0gYyEW23ClSI">
+  <aside class="sidebar" id="sidebar" data-page-node-id="vbCmDJmVeQB0RfBrMr4N5H">
+    <div id="navRoot" data-page-node-id="yt9RFuHJLei38TKdDIRx2e"><div class="nav-group"><div class="nav-cat">学习方向</div><a class="nav-item" data-target="codelanguage" href="#codelanguage"><span class="dot" style="background:#f0a06a"></span>编程语言</a><a class="nav-item" data-target="fullstack" href="#fullstack"><span class="dot" style="background:#4fd0a8"></span>全栈开发</a><a class="nav-item" data-target="mathmodeling" href="#mathmodeling"><span class="dot" style="background:#e8c24a"></span>数学建模</a><a class="nav-item" data-target="ai" href="#ai"><span class="dot" style="background:#f47ea0"></span>AI 基础</a><a class="nav-item" data-target="milvus" href="#milvus"><span class="dot" style="background:#58c6e8"></span>向量数据库 Milvus</a><a class="nav-item" data-target="cuda" href="#cuda"><span class="dot" style="background:#6ea8ff"></span>CUDA · GPU 编程</a><a class="nav-item active" data-target="inference" href="#inference"><span class="dot" style="background:#5fe0ac"></span>大模型推理 Inference</a><a class="nav-item" data-target="reading" href="#reading"><span class="dot" style="background:#b08aff"></span>论文精读 Reading</a><a class="nav-item" data-target="navlinks" href="#navlinks"><span class="dot" style="background:#facc15"></span>◆ 导航链接</a></div></div>
+  </aside>
+  <main class="content" data-page-node-id="FLbJyu1HLq6ltC5EG7r2B5">
+    <div class="content-head" data-page-node-id="EdlbE91pZjsSJ0eJG7Pfc3">
+      <h1 data-page-node-id="vkrezi5nbGPDZFidowBOVF">博客学习导览</h1>
+      <p class="sub" data-page-node-id="BHcIRQsGtpvlTwpo5V73DU">CUDA · 大模型推理 · 论文精读 · 编程语言 · 全栈 · AI · 数学建模 · 向量检索 —— 一份按方向组织的知识地图</p>
+      <div class="meta" data-page-node-id="0dVXJVvjRVBFgkyQRLMAuC">
+        <span class="chip" data-page-node-id="EpoiacHWhzTBg6u8M1Gqd9">📚 学习导航</span>
+        <span class="chip" id="statChip" data-page-node-id="SRNR5ZyNjxmFbTWhTSJAl3">共 9 个方向 · 50 个模块/资源</span>
+      </div>
+      <div class="cat-summary" id="catSummary" data-page-node-id="LkI5QXmQVJ7TERrN5hA5qA"><a href="#codelanguage">编程语言 <span style="opacity:.6">4</span></a><a href="#fullstack">全栈开发 <span style="opacity:.6">4</span></a><a href="#mathmodeling">数学建模 <span style="opacity:.6">6</span></a><a href="#ai">AI 基础 <span style="opacity:.6">4</span></a><a href="#milvus">向量数据库 Milvus <span style="opacity:.6">4</span></a><a href="#cuda">CUDA · GPU 编程 <span style="opacity:.6">4</span></a><a href="#inference">大模型推理 Inference <span style="opacity:.6">12</span></a><a href="#reading">论文精读 Reading <span style="opacity:.6">6</span></a><a href="#navlinks">◆ 导航链接 <span style="opacity:.6">6</span></a></div>
+    </div>
+    <div id="topicsRoot" data-page-node-id="HOaHARXgTHga9dyTDxFPSq"><section class="topic" id="codelanguage"><h2><span style="color:#f0a06a">◆</span> 编程语言 <a class="anchor" href="#codelanguage" aria-label="链接到本节">#</a></h2><p class="cat-desc">C/C++、CMake、Python 等编程语言与工程构建基础。</p><div class="tbl-wrap"><table><thead><tr><th class="col-type">类型</th><th>简介</th><th>资料 / 模块</th></tr></thead><tbody><tr><td class="col-type"><span class="pill module">学习模块-A</span></td><td class="col-desc">以《C++ Primer（第五版）》系统过一遍 C++ 语法与现代 C++</td><td class="col-res"><span class="res-name">《C++ Primer》精读</span><span class="res-extra"><a href="https://www.cpp-primer.com/" target="_blank" rel="noopener">配套 · 文档 ↗</a><a href="https://www.bilibili.com/video/BV1z64y1U7hs" target="_blank" rel="noopener">配套 · 视频① ↗</a><a href="https://www.bilibili.com/video/BV1aw411K7zy" target="_blank" rel="noopener">配套 · 视频② ↗</a><a href="https://github.com/Mooophy/Cpp-Primer" target="_blank" rel="noopener">配套 · GitHub英文版 ↗</a><a href="https://github.com/applenob/Cpp_Primer_Practice" target="_blank" rel="noopener">配套 · GitHub中文版 ↗</a></span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-B</span></td><td class="col-desc">CMakeLists 编写、多目标组织、编译链接与完整工程实践</td><td class="col-res"><span class="res-name">CMake 工程构建</span><span class="res-extra"><a href="https://space.bilibili.com/387174269/lists/4682145" target="_blank" rel="noopener">配套 · 视频 ↗</a></span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-C</span></td><td class="col-desc">现代 C++ 高性能编程、并行模型与性能优化方法</td><td class="col-res"><span class="res-name">高性能并行编程与优化</span><span class="res-extra"><a href="https://space.bilibili.com/263032155/channel/collectiondetail?sid=53025" target="_blank" rel="noopener">配套 · 视频 ↗</a><a href="https://www.cnblogs.com/mfryf/p/10205272.html" target="_blank" rel="noopener">配套 · 博客① ↗</a><a href="https://www.cnblogs.com/ybqjymy/p/17462877.html" target="_blank" rel="noopener">配套 · 博客② ↗</a><a href="https://github.com/parallel101/course" target="_blank" rel="noopener">配套 · GitHub ↗</a></span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-D</span></td><td class="col-desc">线程、锁、原子操作与 C++ 内存模型</td><td class="col-res"><span class="res-name">《C++ Concurrency in Action》</span><span class="res-extra"><a href="https://www.bookstack.cn/read/Cpp_Concurrency_In_Action/README.md" target="_blank" rel="noopener">配套 · 文档 ↗</a></span></td></tr></tbody></table></div></section><section class="topic" id="fullstack"><h2><span style="color:#4fd0a8">◆</span> 全栈开发 <a class="anchor" href="#fullstack" aria-label="链接到本节">#</a></h2><p class="cat-desc">以尚硅谷系列为主线的 Git / Java 微服务 / Linux / Shell 全栈笔记。</p><div class="tbl-wrap"><table><thead><tr><th class="col-type">类型</th><th>简介</th><th>资料 / 模块</th></tr></thead><tbody><tr><td class="col-type"><span class="pill module">学习模块-A</span></td><td class="col-desc">Java 全栈路线：核心基础 → 微服务核心 → 微服务生态 → 项目实战</td><td class="col-res"><span class="res-name">尚硅谷 Java（微服务全栈）</span><span class="res-extra"><a href="https://space.bilibili.com/302417610/channel/seriesdetail?sid=457613" target="_blank" rel="noopener">配套 · 视频 ↗</a></span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-B</span></td><td class="col-desc">Git 版本控制：常用命令、分支协作与工作流</td><td class="col-res"><span class="res-name">尚硅谷 Git</span><span class="res-extra"><a href="https://www.bilibili.com/video/BV1vy4y1s7k6" target="_blank" rel="noopener">配套 · 视频 ↗</a></span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-C</span></td><td class="col-desc">Linux 常用命令、权限、进程与系统管理</td><td class="col-res"><span class="res-name">尚硅谷 Linux</span><span class="res-extra"><a href="https://www.bilibili.com/video/BV1WY4y1H7d3" target="_blank" rel="noopener">配套 · 视频 ↗</a></span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-D</span></td><td class="col-desc">Shell 脚本：变量、流程控制、函数与自动化</td><td class="col-res"><span class="res-name">尚硅谷 Shell</span><span class="res-extra"><a href="https://www.bilibili.com/video/BV1WY4y1H7d3" target="_blank" rel="noopener">配套 · 视频 ↗</a></span></td></tr></tbody></table></div></section><section class="topic" id="mathmodeling"><h2><span style="color:#e8c24a">◆</span> 数学建模 <a class="anchor" href="#mathmodeling" aria-label="链接到本节">#</a></h2><p class="cat-desc">预测、评价、相关性、分类、优化五大数学建模方法体系。</p><div class="tbl-wrap"><table><thead><tr><th class="col-type">类型</th><th>简介</th><th>资料 / 模块</th></tr></thead><tbody><tr><td class="col-type"><span class="pill module">学习模块-A</span></td><td class="col-desc">数学建模总体方法、流程与参赛导引</td><td class="col-res"><span class="res-name">入门导引</span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-B</span></td><td class="col-desc">灰色预测、回归、时间序列、微分方程等预测/预报方法</td><td class="col-res"><span class="res-name">A 预测与预报</span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-C</span></td><td class="col-desc">层次分析、TOPSIS、熵权法、模糊综合评价等评价决策</td><td class="col-res"><span class="res-name">B 评价与决策</span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-D</span></td><td class="col-desc">Pearson/Spearman/Kendall 相关、显著性检验、主成分等</td><td class="col-res"><span class="res-name">C 相关性分析</span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-E</span></td><td class="col-desc">判别分析、聚类、逻辑回归、SVM 等分类方法</td><td class="col-res"><span class="res-name">D 分类与判别</span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-F</span></td><td class="col-desc">线性/非线性/整数规划与智能优化算法</td><td class="col-res"><span class="res-name">E 优化与控制</span></td></tr></tbody></table></div></section><section class="topic" id="ai"><h2><span style="color:#f47ea0">◆</span> AI 基础 <a class="anchor" href="#ai" aria-label="链接到本节">#</a></h2><p class="cat-desc">跟李沐《动手学深度学习》、李宏毅机器学习、李飞飞 CS231n 与传统机器学习打基础。</p><div class="tbl-wrap"><table><thead><tr><th class="col-type">类型</th><th>简介</th><th>资料 / 模块</th></tr></thead><tbody><tr><td class="col-type"><span class="pill module">学习模块-A</span></td><td class="col-desc">传统机器学习基本概念与绪论</td><td class="col-res"><span class="res-name">传统机器学习</span><span class="res-extra"><a href="https://zhuanlan.zhihu.com/p/33794257" target="_blank" rel="noopener">配套 · 笔记 ↗</a></span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-B</span></td><td class="col-desc">按 d2l 章节系统学：预备知识 → 线性网络/MLP → CNN → RNN → 注意力 → 优化算法 → CV</td><td class="col-res"><span class="res-name">李沐《动手学深度学习》</span><span class="res-extra"><a href="https://space.bilibili.com/1567748478/channel/seriesdetail?sid=358497" target="_blank" rel="noopener">配套 · B站课程 ↗</a><a href="https://courses.d2l.ai/zh-v2/" target="_blank" rel="noopener">配套 · PPT教材 ↗</a><a href="https://zh-v2.d2l.ai/chapter_preface/index.html" target="_blank" rel="noopener">配套 · 书籍 第一版 ↗</a><a href="https://zh.d2l.ai/" target="_blank" rel="noopener">配套 · 书籍 第二版 ↗</a></span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-C</span></td><td class="col-desc">李宏毅机器学习/深度学习课程笔记（含注意力机制等专题）</td><td class="col-res"><span class="res-name">李宏毅机器学习</span><span class="res-extra"><a href="https://speech.ee.ntu.edu.tw/~hylee/ml/2021-spring.php" target="_blank" rel="noopener">配套 · 课程 ↗</a><a href="https://www.bilibili.com/video/BV1v3411r78R/" target="_blank" rel="noopener">配套 · B站视频 ↗</a></span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-D</span></td><td class="col-desc">CS231n：计算机视觉与卷积神经网络</td><td class="col-res"><span class="res-name">李飞飞 CS231n</span><span class="res-extra"><a href="http://cs231n.stanford.edu/" target="_blank" rel="noopener">配套 · 课程 ↗</a></span></td></tr></tbody></table></div></section><section class="topic" id="milvus"><h2><span style="color:#58c6e8">◆</span> 向量数据库 Milvus <a class="anchor" href="#milvus" aria-label="链接到本节">#</a></h2><p class="cat-desc">Milvus 的原理思考、上手套用、源码改进与使用技巧。</p><div class="tbl-wrap"><table><thead><tr><th class="col-type">类型</th><th>简介</th><th>资料 / 模块</th></tr></thead><tbody><tr><td class="col-type"><span class="pill module">学习模块-A</span></td><td class="col-desc">Milvus 架构与底层原理思考</td><td class="col-res"><span class="res-name">思考书屋（原理）</span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-B</span></td><td class="col-desc">Milvus 安装、SDK 上手与基本使用</td><td class="col-res"><span class="res-name">学习过程（上手）</span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-C</span></td><td class="col-desc">Milvus 源码级改进实践</td><td class="col-res"><span class="res-name">改进过程（源码）</span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-D</span></td><td class="col-desc">Milvus 使用技巧、调参与踩坑记录</td><td class="col-res"><span class="res-name">小知识点（技巧）</span></td></tr></tbody></table></div></section><section class="topic" id="cuda"><h2><span style="color:#6ea8ff">◆</span> CUDA · GPU 编程 <a class="anchor" href="#cuda" aria-label="链接到本节">#</a></h2><p class="cat-desc">从 GPU 编程模型、内存层次到手写 Kernel 与性能优化的完整 CUDA 学习栈。</p><div class="cat-links"><a class="clink src-zhihu" href="https://godweiyang.com/2021/01/25/cuda-reading/" target="_blank" rel="noopener"><i class="dot"></i><span class="src">知乎</span>推荐几个不错的CUDA入门教程 ↗</a><a class="clink src-zhihu" href="https://zhuanlan.zhihu.com/p/53773183" target="_blank" rel="noopener"><i class="dot"></i><span class="src">知乎</span>《CUDA C 编程指南》导读 ↗</a><span class="clink link-todo src-zhihu"><i class="dot"></i><span class="src">知乎</span>琦琦大佬的全篇</span><a class="clink src-blog" href="https://face2ai.com/" target="_blank" rel="noopener"><i class="dot"></i><span class="src">博客</span>谭升的博客 ↗</a><a class="clink src-blog" href="https://face2ai.com/program-blog/#GPU编程(CUDA)" target="_blank" rel="noopener"><i class="dot"></i><span class="src">博客</span>谭升的博客 GPU编程（CUDA） ↗</a><span class="clink link-todo src-cnblogs"><i class="dot"></i><span class="src">博客园</span>真神</span><a class="clink src-bili" href="https://www.bilibili.com/video/BV1sM4y1x7of/" target="_blank" rel="noopener"><i class="dot"></i><span class="src">B站</span>CUDA编程基础入门系列（持续更新） ↗</a><a class="clink src-bili" href="https://space.bilibili.com/218427631/lists/4695308?type=series" target="_blank" rel="noopener"><i class="dot"></i><span class="src">B站</span>比飞鸟贵重的多_HKL CUDA合集 ↗</a><span class="clink link-todo src-csdn"><i class="dot"></i><span class="src">CSDN</span>一个感觉不错的Blog</span><span class="clink link-todo src-csdn"><i class="dot"></i><span class="src">CSDN</span>CUDA简介, 配置和运行第一个CUDA程序</span><a class="clink src-csdn" href="https://blog.csdn.net/baishuiniyaonulia/article/details/123023666" target="_blank" rel="noopener"><i class="dot"></i><span class="src">CSDN</span>CUDA C/C++ 教程一：加速应用程序 ↗</a></div><div class="tbl-wrap"><table><thead><tr><th class="col-type">类型</th><th>简介</th><th>资料 / 模块</th></tr></thead><tbody><tr><td class="col-type"><span class="pill module">学习模块-A</span></td><td class="col-desc">以《CUDA C 编程》为主线系统入门：线程网格/块、共享内存、线程同步与常见编程模式</td><td class="col-res"><span class="res-name">CUDA 编程指南</span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-B</span></td><td class="col-desc">精读 NVIDIA 官方指南：编程模型、SM 硬件、内存层次、流与事件、虚拟内存管理（VMM）</td><td class="col-res"><span class="res-name">CUDA 官方文档</span><span class="res-extra"><a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html" target="_blank" rel="noopener">配套 · 文档 ↗</a><a href="https://docs.nvidia.com/cuda/pdf/CUDA_C_Programming_Guide.pdf" target="_blank" rel="noopener">配套 · PDF下载 ↗</a></span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-C</span></td><td class="col-desc">逐例实践官方 CUDA Samples，把编程模型落到可运行代码</td><td class="col-res"><span class="res-name">CUDA 必会代码</span><span class="res-extra"><a href="https://github.com/NVIDIA/cuda-samples" target="_blank" rel="noopener">配套 · GitHub ↗</a></span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-D</span></td><td class="col-desc">cuBLAS、cuSPARSE、NCCL、Thrust 等常用 CUDA 库的选型与使用</td><td class="col-res"><span class="res-name">CUDA 库函数</span></td></tr></tbody></table></div></section><section class="topic" id="inference"><h2><span style="color:#5fe0ac">◆</span> 大模型推理 Inference <a class="anchor" href="#inference" aria-label="链接到本节">#</a></h2><p class="cat-desc">从 Transformer 到 KV-Cache、PagedAttention、FlashAttention，再到 vLLM 框架、并行调度、长序列、采样加速与量化压缩的完整推理链路。</p><div class="tbl-wrap"><table><thead><tr><th class="col-type">类型</th><th>简介</th><th>资料 / 模块</th></tr></thead><tbody><tr><td class="col-type"><span class="pill doc">文档</span></td><td class="col-desc">引擎参数、调度与离线/在线服务完整文档</td><td class="col-res"><a class="res-name" href="https://docs.vllm.ai/en/latest/" target="_blank" rel="noopener">vLLM 官方文档</a></td></tr><tr><td class="col-type"><span class="pill repo">仓库</span></td><td class="col-desc">vLLM 源码与官方示例</td><td class="col-res"><a class="res-name" href="https://github.com/vllm-project/vllm" target="_blank" rel="noopener">vLLM GitHub</a></td></tr><tr><td class="col-type"><span class="pill paper">论文</span></td><td class="col-desc">vLLM 核心：分页管理 KV Cache</td><td class="col-res"><a class="res-name" href="https://arxiv.org/abs/2309.06180" target="_blank" rel="noopener">PagedAttention 论文</a></td></tr><tr><td class="col-type"><span class="pill paper">论文</span></td><td class="col-desc">IO-aware 精确 Attention</td><td class="col-res"><a class="res-name" href="https://arxiv.org/abs/2205.14135" target="_blank" rel="noopener">FlashAttention 论文</a></td></tr><tr><td class="col-type"><span class="pill module">学习模块-A</span></td><td class="col-desc">前置 Transformer 原理、LLM 全流程数据流，并手写一个简化版 Nano-vLLM</td><td class="col-res"><span class="res-name">入门导引</span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-B</span></td><td class="col-desc">推理流程、性能指标（TTFT/TPOT/吞吐/MFU）、框架概述、vLLM 架构、张量/流水线并行</td><td class="col-res"><span class="res-name">O 推理框架基础</span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-C</span></td><td class="col-desc">KV-Cache、PagedAttention、FlashAttention、LLM in Flash、StreamLLM</td><td class="col-res"><span class="res-name">P 推理核心原理</span><span class="res-extra"><a href="https://arxiv.org/abs/2309.06180" target="_blank" rel="noopener">配套 · 论文 ↗</a></span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-D</span></td><td class="col-desc">Continuous Batching、Chunked Prefill、Prefix Caching、PD 分离、FastChat 负载均衡</td><td class="col-res"><span class="res-name">Q 架构与调度</span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-E</span></td><td class="col-desc">Ring Attention、LongLoRA、FastGen、Homer 分层</td><td class="col-res"><span class="res-name">R 长序列推理</span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-F</span></td><td class="col-desc">Greedy/Temperature/Top-p、Speculative、Lookahead、Parallel Decoding、MoE 采样、早退出</td><td class="col-res"><span class="res-name">S 输出采样</span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-G</span></td><td class="col-desc">量化格式（FP16/INT8/INT4）、低精度推理、SmoothQuant、GPTQ、AWQ</td><td class="col-res"><span class="res-name">T 压缩与轻量化</span><span class="res-extra"><a href="https://arxiv.org/abs/2211.10438" target="_blank" rel="noopener">配套 · 论文 ↗</a></span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-H</span></td><td class="col-desc">2025 / 2026 AI Infra 方向秋招面经与高频题库</td><td class="col-res"><span class="res-name">Z 秋招高频热题</span></td></tr></tbody></table></div></section><section class="topic" id="reading"><h2><span style="color:#b08aff">◆</span> 论文精读 Reading <a class="anchor" href="#reading" aria-label="链接到本节">#</a></h2><p class="cat-desc">围绕向量检索 / ANN、高性能存储与计算机视觉方向的论文精读。</p><div class="tbl-wrap"><table><thead><tr><th class="col-type">类型</th><th>简介</th><th>资料 / 模块</th></tr></thead><tbody><tr><td class="col-type"><span class="pill module">学习模块-A</span></td><td class="col-desc">综述1</td><td class="col-res"><span class="res-name">综述</span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-B</span></td><td class="col-desc">HNSW、NSG、RNNDescent、FastHNSW、EFANNA、OnlineKNNG</td><td class="col-res"><span class="res-name">内存</span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-C</span></td><td class="col-desc">PQ、OPQ、OptimisticIVFPQ、RabitQ、SymphonyQG、LVQ、QuickADC、QuickerADC</td><td class="col-res"><span class="res-name">PQ量化</span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-D</span></td><td class="col-desc">DiskAnn、FreshDiskANN、Starling、SPANN、PageANN</td><td class="col-res"><span class="res-name">Disk</span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-E</span></td><td class="col-desc">CoTra、DSANN</td><td class="col-res"><span class="res-name">分布式</span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-F</span></td><td class="col-desc">CAGRA、RUMMY、BANG、PilotANN、FusionANNS、FlashANNS、PathWeaver、VecFlow</td><td class="col-res"><span class="res-name">GPU</span></td></tr></tbody></table></div></section><section class="topic" id="navlinks"><h2><span style="color:#facc15">◆</span> ◆ 导航链接 <a class="anchor" href="#navlinks" aria-label="链接到本节">#</a></h2><p class="cat-desc">跨算法通用的 ANN 评测、研究组主页、官方库与中文解读（来自 src 全站）。</p><div class="tbl-wrap"><table><thead><tr><th class="col-type">类型</th><th>简介</th><th>资料 / 模块</th></tr></thead><tbody><tr><td class="col-type"><span class="pill module">学习模块-A</span></td><td class="col-desc">主流 ANN 基准平台与数据集下载。</td><td class="col-res"><span class="res-name">评测与基准</span><span class="res-extra"><a href="http://big-ann-benchmarks.com/" target="_blank" rel="noopener">big-ann-benchmarks 评测平台</a><a href="https://github.com/erikbern/ann-benchmarks" target="_blank" rel="noopener">ann-benchmarks 经典基准</a><a href="https://big-ann-benchmarks.com/neurips21.html" target="_blank" rel="noopener">NeurIPS 2021 1B 数据集下载</a></span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-B</span></td><td class="col-desc">Awesome 清单、综述笔记与入门系列。</td><td class="col-res"><span class="res-name">论文清单与综述</span><span class="res-extra"><a href="https://github.com/matchyc/vector-search-papers" target="_blank" rel="noopener">awesome vector-search-papers 论文清单</a><a href="https://www.cnblogs.com/zackstang/p/18553945#_label5" target="_blank" rel="noopener">向量数据库 ANN 综述笔记（博客园）</a><a href="https://zhuanlan.zhihu.com/p/610454162" target="_blank" rel="noopener">ANN 综述相关 zhihu</a><a href="https://dev.to/gaoj0017/quantization-in-the-counterintuitive-high-dimensional-space-4feg" target="_blank" rel="noopener">Quantization in High-Dim Space</a><a href="https://www.pinecone.io/learn/series/faiss/" target="_blank" rel="noopener">Pinecone FAISS 系列教程</a><a href="https://www.pinecone.io/learn/series/faiss/product-quantization/" target="_blank" rel="noopener">Pinecone Product Quantization</a></span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-C</span></td><td class="col-desc">NVIDIA / Microsoft / Google / Yahoo / Alibaba / Intel 等官方库。</td><td class="col-res"><span class="res-name">跨算法通用库</span><span class="res-extra"><a href="https://github.com/rapidsai/cuvs" target="_blank" rel="noopener">NVIDIA cuVS 库</a><a href="https://github.com/rapidsai/raft" target="_blank" rel="noopener">NVIDIA RAFT</a><a href="https://github.com/IntelLabs/ScalableVectorSearch" target="_blank" rel="noopener">Intel SVS (ScalableVectorSearch)</a><a href="https://github.com/microsoft/SPTAG" target="_blank" rel="noopener">Microsoft SPTAG</a><a href="https://github.com/microsoft/DiskANN" target="_blank" rel="noopener">Microsoft DiskANN</a><a href="https://github.com/google-research/google-research/tree/master/scann" target="_blank" rel="noopener">Google ScaNN</a><a href="https://github.com/yahoojapan/NGT" target="_blank" rel="noopener">Yahoo Japan NGT</a><a href="https://github.com/alibaba/zvec" target="_blank" rel="noopener">Alibaba zvec</a><a href="https://docs.rapids.ai/api/cuvs/nightly/cpp_api/neighbors_cagra/" target="_blank" rel="noopener">cuVS docs · CAGRA</a><a href="https://docs.rapids.ai/api/cuvs/stable/cpp_api/neighbors_nn_descent/" target="_blank" rel="noopener">cuVS docs · NN-Descent</a></span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-D</span></td><td class="col-desc">中港台主要 ANN 研究组 / 实验室主页。</td><td class="col-res"><span class="res-name">研究组与实验室</span><span class="res-extra"><a href="https://kay21s.github.io/" target="_blank" rel="noopener">复旦大学张凯向量数据库组</a><a href="https://mzwang.top/" target="_blank" rel="noopener">王致泓主页</a><a href="https://howarlii.github.io/" target="_blank" rel="noopener">Li (Howarlii) 主页</a><a href="https://storage.cs.tsinghua.edu.cn/~lu" target="_blank" rel="noopener">清华大学舒继武实验室</a><a href="https://tianbing111.github.io/" target="_blank" rel="noopener">Tian 主页</a><a href="https://ssomesh.github.io/index.html" target="_blank" rel="noopener">BANG (Somesh) 主页</a></span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-E</span></td><td class="col-desc">中文博客对 GPU ANN / 量化融合等的解读。</td><td class="col-res"><span class="res-name">中文解读</span><span class="res-extra"><a href="https://cloud.tencent.com/developer/article/2435462?policyId=1004" target="_blank" rel="noopener">GPU-Cagra 索引介绍（腾讯云）</a><a href="https://blog.csdn.net/m0_59614665/article/details/145222422" target="_blank" rel="noopener">FusionANNS 解读（CSDN）</a></span></td></tr><tr><td class="col-type"><span class="pill module">学习模块-F</span></td><td class="col-desc">GPU 直连存储 (GDS) 与 Phoenix 项目。</td><td class="col-res"><span class="res-name">高性能存储</span><span class="res-extra"><a href="https://github.com/nicexlab/phoenix" target="_blank" rel="noopener">Phoenix GDS（高性能存储）</a><a href="https://github.com/gds-phoenix-project/phoenix" target="_blank" rel="noopener">Phoenix Project</a></span></td></tr></tbody></table></div></section></div>
+  </main>
+</div>
+<script>
+window.__RESOURCES__ = [
+  {
+    "id": "codelanguage",
+    "name": "编程语言",
+    "desc": "C/C++、CMake、Python 等编程语言与工程构建基础。",
+    "color": "#f0a06a",
+    "items": [
+      {
+        "type": "module",
+        "name": "《C++ Primer》精读",
+        "desc": "以《C++ Primer（第五版）》系统过一遍 C++ 语法与现代 C++",
+        "extra": [
+          {
+            "label": "配套 · 文档 ↗",
+            "url": "https://www.cpp-primer.com/"
+          },
+          {
+            "label": "配套 · 视频① ↗",
+            "url": "https://www.bilibili.com/video/BV1z64y1U7hs"
+          },
+          {
+            "label": "配套 · 视频② ↗",
+            "url": "https://www.bilibili.com/video/BV1aw411K7zy"
+          },
+          {
+            "label": "配套 · GitHub英文版 ↗",
+            "url": "https://github.com/Mooophy/Cpp-Primer"
+          },
+          {
+            "label": "配套 · GitHub中文版 ↗",
+            "url": "https://github.com/applenob/Cpp_Primer_Practice"
+          }
+        ]
+      },
+      {
+        "type": "module",
+        "name": "CMake 工程构建",
+        "desc": "CMakeLists 编写、多目标组织、编译链接与完整工程实践",
+        "extra": [
+          {
+            "label": "配套 · 视频 ↗",
+            "url": "https://space.bilibili.com/387174269/lists/4682145"
+          }
+        ]
+      },
+      {
+        "type": "module",
+        "name": "高性能并行编程与优化",
+        "desc": "现代 C++ 高性能编程、并行模型与性能优化方法",
+        "extra": [
+          {
+            "label": "配套 · 视频 ↗",
+            "url": "https://space.bilibili.com/263032155/channel/collectiondetail?sid=53025"
+          },
+          {
+            "label": "配套 · 博客① ↗",
+            "url": "https://www.cnblogs.com/mfryf/p/10205272.html"
+          },
+          {
+            "label": "配套 · 博客② ↗",
+            "url": "https://www.cnblogs.com/ybqjymy/p/17462877.html"
+          },
+          {
+            "label": "配套 · GitHub ↗",
+            "url": "https://github.com/parallel101/course"
+          }
+        ]
+      },
+      {
+        "type": "module",
+        "name": "《C++ Concurrency in Action》",
+        "desc": "线程、锁、原子操作与 C++ 内存模型",
+        "extra": [
+          {
+            "label": "配套 · 文档 ↗",
+            "url": "https://www.bookstack.cn/read/Cpp_Concurrency_In_Action/README.md"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fullstack",
+    "name": "全栈开发",
+    "desc": "以尚硅谷系列为主线的 Git / Java 微服务 / Linux / Shell 全栈笔记。",
+    "color": "#4fd0a8",
+    "items": [
+      {
+        "type": "module",
+        "name": "尚硅谷 Java（微服务全栈）",
+        "desc": "Java 全栈路线：核心基础 → 微服务核心 → 微服务生态 → 项目实战",
+        "extra": [
+          {
+            "label": "配套 · 视频 ↗",
+            "url": "https://space.bilibili.com/302417610/channel/seriesdetail?sid=457613"
+          }
+        ]
+      },
+      {
+        "type": "module",
+        "name": "尚硅谷 Git",
+        "desc": "Git 版本控制：常用命令、分支协作与工作流",
+        "extra": [
+          {
+            "label": "配套 · 视频 ↗",
+            "url": "https://www.bilibili.com/video/BV1vy4y1s7k6"
+          }
+        ]
+      },
+      {
+        "type": "module",
+        "name": "尚硅谷 Linux",
+        "desc": "Linux 常用命令、权限、进程与系统管理",
+        "extra": [
+          {
+            "label": "配套 · 视频 ↗",
+            "url": "https://www.bilibili.com/video/BV1WY4y1H7d3"
+          }
+        ]
+      },
+      {
+        "type": "module",
+        "name": "尚硅谷 Shell",
+        "desc": "Shell 脚本：变量、流程控制、函数与自动化",
+        "extra": [
+          {
+            "label": "配套 · 视频 ↗",
+            "url": "https://www.bilibili.com/video/BV1WY4y1H7d3"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "mathmodeling",
+    "name": "数学建模",
+    "desc": "预测、评价、相关性、分类、优化五大数学建模方法体系。",
+    "color": "#e8c24a",
+    "items": [
+      {
+        "type": "module",
+        "name": "入门导引",
+        "desc": "数学建模总体方法、流程与参赛导引"
+      },
+      {
+        "type": "module",
+        "name": "A 预测与预报",
+        "desc": "灰色预测、回归、时间序列、微分方程等预测/预报方法"
+      },
+      {
+        "type": "module",
+        "name": "B 评价与决策",
+        "desc": "层次分析、TOPSIS、熵权法、模糊综合评价等评价决策"
+      },
+      {
+        "type": "module",
+        "name": "C 相关性分析",
+        "desc": "Pearson/Spearman/Kendall 相关、显著性检验、主成分等"
+      },
+      {
+        "type": "module",
+        "name": "D 分类与判别",
+        "desc": "判别分析、聚类、逻辑回归、SVM 等分类方法"
+      },
+      {
+        "type": "module",
+        "name": "E 优化与控制",
+        "desc": "线性/非线性/整数规划与智能优化算法"
+      }
+    ]
+  },
+  {
+    "id": "ai",
+    "name": "AI 基础",
+    "desc": "跟李沐《动手学深度学习》、李宏毅机器学习、李飞飞 CS231n 与传统机器学习打基础。",
+    "color": "#f47ea0",
+    "items": [
+      {
+        "type": "module",
+        "name": "传统机器学习",
+        "desc": "传统机器学习基本概念与绪论",
+        "extra": [
+          {
+            "label": "配套 · 笔记 ↗",
+            "url": "https://zhuanlan.zhihu.com/p/33794257"
+          }
+        ]
+      },
+      {
+        "type": "module",
+        "name": "李沐《动手学深度学习》",
+        "desc": "按 d2l 章节系统学：预备知识 → 线性网络/MLP → CNN → RNN → 注意力 → 优化算法 → CV",
+        "extra": [
+          {
+            "label": "配套 · B站课程 ↗",
+            "url": "https://space.bilibili.com/1567748478/channel/seriesdetail?sid=358497"
+          },
+          {
+            "label": "配套 · PPT教材 ↗",
+            "url": "https://courses.d2l.ai/zh-v2/"
+          },
+          {
+            "label": "配套 · 书籍 第一版 ↗",
+            "url": "https://zh-v2.d2l.ai/chapter_preface/index.html"
+          },
+          {
+            "label": "配套 · 书籍 第二版 ↗",
+            "url": "https://zh.d2l.ai/"
+          }
+        ]
+      },
+      {
+        "type": "module",
+        "name": "李宏毅机器学习",
+        "desc": "李宏毅机器学习/深度学习课程笔记（含注意力机制等专题）",
+        "extra": [
+          {
+            "label": "配套 · 课程 ↗",
+            "url": "https://speech.ee.ntu.edu.tw/~hylee/ml/2021-spring.php"
+          },
+          {
+            "label": "配套 · B站视频 ↗",
+            "url": "https://www.bilibili.com/video/BV1v3411r78R/"
+          }
+        ]
+      },
+      {
+        "type": "module",
+        "name": "李飞飞 CS231n",
+        "desc": "CS231n：计算机视觉与卷积神经网络",
+        "extra": [
+          {
+            "label": "配套 · 课程 ↗",
+            "url": "http://cs231n.stanford.edu/"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "milvus",
+    "name": "向量数据库 Milvus",
+    "desc": "Milvus 的原理思考、上手套用、源码改进与使用技巧。",
+    "color": "#58c6e8",
+    "items": [
+      {
+        "type": "module",
+        "name": "思考书屋（原理）",
+        "desc": "Milvus 架构与底层原理思考"
+      },
+      {
+        "type": "module",
+        "name": "学习过程（上手）",
+        "desc": "Milvus 安装、SDK 上手与基本使用"
+      },
+      {
+        "type": "module",
+        "name": "改进过程（源码）",
+        "desc": "Milvus 源码级改进实践"
+      },
+      {
+        "type": "module",
+        "name": "小知识点（技巧）",
+        "desc": "Milvus 使用技巧、调参与踩坑记录"
+      }
+    ]
+  },
+  {
+    "id": "cuda",
+    "name": "CUDA · GPU 编程",
+    "desc": "从 GPU 编程模型、内存层次到手写 Kernel 与性能优化的完整 CUDA 学习栈。",
+    "color": "#6ea8ff",
+    "items": [
+      {
+        "type": "module",
+        "name": "CUDA 编程指南",
+        "desc": "以《CUDA C 编程》为主线系统入门：线程网格/块、共享内存、线程同步与常见编程模式"
+      },
+      {
+        "type": "module",
+        "name": "CUDA 官方文档",
+        "desc": "精读 NVIDIA 官方指南：编程模型、SM 硬件、内存层次、流与事件、虚拟内存管理（VMM）",
+        "extra": [
+          {
+            "label": "配套 · 文档 ↗",
+            "url": "https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html"
+          },
+          {
+            "label": "配套 · PDF下载 ↗",
+            "url": "https://docs.nvidia.com/cuda/pdf/CUDA_C_Programming_Guide.pdf"
+          }
+        ]
+      },
+      {
+        "type": "module",
+        "name": "CUDA 必会代码",
+        "desc": "逐例实践官方 CUDA Samples，把编程模型落到可运行代码",
+        "extra": [
+          {
+            "label": "配套 · GitHub ↗",
+            "url": "https://github.com/NVIDIA/cuda-samples"
+          }
+        ]
+      },
+      {
+        "type": "module",
+        "name": "CUDA 库函数",
+        "desc": "cuBLAS、cuSPARSE、NCCL、Thrust 等常用 CUDA 库的选型与使用"
+      }
+    ],
+    "links": [
+      {
+        "label": "知乎 · 推荐几个不错的CUDA入门教程",
+        "url": "https://godweiyang.com/2021/01/25/cuda-reading/"
+      },
+      {
+        "label": "知乎 · 《CUDA C 编程指南》导读",
+        "url": "https://zhuanlan.zhihu.com/p/53773183"
+      },
+      {
+        "label": "知乎 · 琦琦大佬的全篇",
+        "url": ""
+      },
+      {
+        "label": "博客 · 谭升的博客",
+        "url": "https://face2ai.com/"
+      },
+      {
+        "label": "博客 · 谭升的博客 GPU编程（CUDA）",
+        "url": "https://face2ai.com/program-blog/#GPU编程(CUDA)"
+      },
+      {
+        "label": "博客园 · 真神",
+        "url": ""
+      },
+      {
+        "label": "B站 · CUDA编程基础入门系列（持续更新）",
+        "url": "https://www.bilibili.com/video/BV1sM4y1x7of/"
+      },
+      {
+        "label": "B站 · 比飞鸟贵重的多_HKL CUDA合集",
+        "url": "https://space.bilibili.com/218427631/lists/4695308?type=series"
+      },
+      {
+        "label": "CSDN · 一个感觉不错的Blog",
+        "url": ""
+      },
+      {
+        "label": "CSDN · CUDA简介, 配置和运行第一个CUDA程序",
+        "url": ""
+      },
+      {
+        "label": "CSDN · CUDA C/C++ 教程一：加速应用程序",
+        "url": "https://blog.csdn.net/baishuiniyaonulia/article/details/123023666"
+      }
+    ]
+  },
+  {
+    "id": "inference",
+    "name": "大模型推理 Inference",
+    "desc": "从 Transformer 到 KV-Cache、PagedAttention、FlashAttention，再到 vLLM 框架、并行调度、长序列、采样加速与量化压缩的完整推理链路。",
+    "color": "#5fe0ac",
+    "items": [
+      {
+        "type": "doc",
+        "name": "vLLM 官方文档",
+        "url": "https://docs.vllm.ai/en/latest/",
+        "desc": "引擎参数、调度与离线/在线服务完整文档"
+      },
+      {
+        "type": "repo",
+        "name": "vLLM GitHub",
+        "url": "https://github.com/vllm-project/vllm",
+        "desc": "vLLM 源码与官方示例"
+      },
+      {
+        "type": "paper",
+        "name": "PagedAttention 论文",
+        "url": "https://arxiv.org/abs/2309.06180",
+        "desc": "vLLM 核心：分页管理 KV Cache"
+      },
+      {
+        "type": "paper",
+        "name": "FlashAttention 论文",
+        "url": "https://arxiv.org/abs/2205.14135",
+        "desc": "IO-aware 精确 Attention"
+      },
+      {
+        "type": "module",
+        "name": "入门导引",
+        "desc": "前置 Transformer 原理、LLM 全流程数据流，并手写一个简化版 Nano-vLLM"
+      },
+      {
+        "type": "module",
+        "name": "O 推理框架基础",
+        "desc": "推理流程、性能指标（TTFT/TPOT/吞吐/MFU）、框架概述、vLLM 架构、张量/流水线并行"
+      },
+      {
+        "type": "module",
+        "name": "P 推理核心原理",
+        "desc": "KV-Cache、PagedAttention、FlashAttention、LLM in Flash、StreamLLM",
+        "extra": [
+          {
+            "label": "配套 · 论文 ↗",
+            "url": "https://arxiv.org/abs/2309.06180"
+          }
+        ]
+      },
+      {
+        "type": "module",
+        "name": "Q 架构与调度",
+        "desc": "Continuous Batching、Chunked Prefill、Prefix Caching、PD 分离、FastChat 负载均衡"
+      },
+      {
+        "type": "module",
+        "name": "R 长序列推理",
+        "desc": "Ring Attention、LongLoRA、FastGen、Homer 分层"
+      },
+      {
+        "type": "module",
+        "name": "S 输出采样",
+        "desc": "Greedy/Temperature/Top-p、Speculative、Lookahead、Parallel Decoding、MoE 采样、早退出"
+      },
+      {
+        "type": "module",
+        "name": "T 压缩与轻量化",
+        "desc": "量化格式（FP16/INT8/INT4）、低精度推理、SmoothQuant、GPTQ、AWQ",
+        "extra": [
+          {
+            "label": "配套 · 论文 ↗",
+            "url": "https://arxiv.org/abs/2211.10438"
+          }
+        ]
+      },
+      {
+        "type": "module",
+        "name": "Z 秋招高频热题",
+        "desc": "2025 / 2026 AI Infra 方向秋招面经与高频题库"
+      }
+    ]
+  },
+  {
+    "id": "reading",
+    "name": "论文精读 Reading",
+    "desc": "围绕向量检索 / ANN、高性能存储与计算机视觉方向的论文精读。",
+    "color": "#b08aff",
+    "items": [
+      {
+        "type": "module",
+        "name": "综述",
+        "url": "",
+        "extra": [],
+        "desc": "综述1"
+      },
+      {
+        "type": "module",
+        "name": "内存",
+        "url": "",
+        "extra": [],
+        "desc": "HNSW、NSG、RNNDescent、FastHNSW、EFANNA、OnlineKNNG"
+      },
+      {
+        "type": "module",
+        "name": "PQ量化",
+        "url": "",
+        "extra": [],
+        "desc": "PQ、OPQ、OptimisticIVFPQ、RabitQ、SymphonyQG、LVQ、QuickADC、QuickerADC"
+      },
+      {
+        "type": "module",
+        "name": "Disk",
+        "url": "",
+        "extra": [],
+        "desc": "DiskAnn、FreshDiskANN、Starling、SPANN、PageANN"
+      },
+      {
+        "type": "module",
+        "name": "分布式",
+        "url": "",
+        "extra": [],
+        "desc": "CoTra、DSANN"
+      },
+      {
+        "type": "module",
+        "name": "GPU",
+        "url": "",
+        "extra": [],
+        "desc": "CAGRA、RUMMY、BANG、PilotANN、FusionANNS、FlashANNS、PathWeaver、VecFlow"
+      },
+    ]
+  },
+  {
+  "id": "navlinks",
+  "name": "导航链接",
+  "color": "#facc15",
+  "desc": "跨算法通用的 ANN 评测、研究组主页、官方库与中文解读（来自 src 全站）。",
+  "items": [
+    {
+      "type": "module",
+      "name": "评测与基准",
+      "url": "",
+      "desc": "主流 ANN 基准平台与数据集下载。",
+      "extra": [
+        {
+          "label": "big-ann-benchmarks 评测平台",
+          "url": "http://big-ann-benchmarks.com/"
+        },
+        {
+          "label": "ann-benchmarks 经典基准",
+          "url": "https://github.com/erikbern/ann-benchmarks"
+        },
+        {
+          "label": "NeurIPS 2021 1B 数据集下载",
+          "url": "https://big-ann-benchmarks.com/neurips21.html"
+        }
+      ]
+    },
+    {
+      "type": "module",
+      "name": "论文清单与综述",
+      "url": "",
+      "desc": "Awesome 清单、综述笔记与入门系列。",
+      "extra": [
+        {
+          "label": "awesome vector-search-papers 论文清单",
+          "url": "https://github.com/matchyc/vector-search-papers"
+        },
+        {
+          "label": "向量数据库 ANN 综述笔记（博客园）",
+          "url": "https://www.cnblogs.com/zackstang/p/18553945#_label5"
+        },
+        {
+          "label": "ANN 综述相关 zhihu",
+          "url": "https://zhuanlan.zhihu.com/p/610454162"
+        },
+        {
+          "label": "Quantization in High-Dim Space",
+          "url": "https://dev.to/gaoj0017/quantization-in-the-counterintuitive-high-dimensional-space-4feg"
+        },
+        {
+          "label": "Pinecone FAISS 系列教程",
+          "url": "https://www.pinecone.io/learn/series/faiss/"
+        },
+        {
+          "label": "Pinecone Product Quantization",
+          "url": "https://www.pinecone.io/learn/series/faiss/product-quantization/"
+        }
+      ]
+    },
+    {
+      "type": "module",
+      "name": "跨算法通用库",
+      "url": "",
+      "desc": "NVIDIA / Microsoft / Google / Yahoo / Alibaba / Intel 等官方库。",
+      "extra": [
+        {
+          "label": "NVIDIA cuVS 库",
+          "url": "https://github.com/rapidsai/cuvs"
+        },
+        {
+          "label": "NVIDIA RAFT",
+          "url": "https://github.com/rapidsai/raft"
+        },
+        {
+          "label": "Intel SVS (ScalableVectorSearch)",
+          "url": "https://github.com/IntelLabs/ScalableVectorSearch"
+        },
+        {
+          "label": "Microsoft SPTAG",
+          "url": "https://github.com/microsoft/SPTAG"
+        },
+        {
+          "label": "Microsoft DiskANN",
+          "url": "https://github.com/microsoft/DiskANN"
+        },
+        {
+          "label": "Google ScaNN",
+          "url": "https://github.com/google-research/google-research/tree/master/scann"
+        },
+        {
+          "label": "Yahoo Japan NGT",
+          "url": "https://github.com/yahoojapan/NGT"
+        },
+        {
+          "label": "Alibaba zvec",
+          "url": "https://github.com/alibaba/zvec"
+        },
+        {
+          "label": "cuVS docs · CAGRA",
+          "url": "https://docs.rapids.ai/api/cuvs/nightly/cpp_api/neighbors_cagra/"
+        },
+        {
+          "label": "cuVS docs · NN-Descent",
+          "url": "https://docs.rapids.ai/api/cuvs/stable/cpp_api/neighbors_nn_descent/"
+        }
+      ]
+    },
+    {
+      "type": "module",
+      "name": "研究组与实验室",
+      "url": "",
+      "desc": "中港台主要 ANN 研究组 / 实验室主页。",
+      "extra": [
+        {
+          "label": "复旦大学张凯向量数据库组",
+          "url": "https://kay21s.github.io/"
+        },
+        {
+          "label": "王致泓主页",
+          "url": "https://mzwang.top/"
+        },
+        {
+          "label": "Li (Howarlii) 主页",
+          "url": "https://howarlii.github.io/"
+        },
+        {
+          "label": "清华大学舒继武实验室",
+          "url": "https://storage.cs.tsinghua.edu.cn/~lu"
+        },
+        {
+          "label": "Tian 主页",
+          "url": "https://tianbing111.github.io/"
+        },
+        {
+          "label": "BANG (Somesh) 主页",
+          "url": "https://ssomesh.github.io/index.html"
+        }
+      ]
+    },
+    {
+      "type": "module",
+      "name": "中文解读",
+      "url": "",
+      "desc": "中文博客对 GPU ANN / 量化融合等的解读。",
+      "extra": [
+        {
+          "label": "GPU-Cagra 索引介绍（腾讯云）",
+          "url": "https://cloud.tencent.com/developer/article/2435462?policyId=1004"
+        },
+        {
+          "label": "FusionANNS 解读（CSDN）",
+          "url": "https://blog.csdn.net/m0_59614665/article/details/145222422"
+        }
+      ]
+    },
+    {
+      "type": "module",
+      "name": "高性能存储",
+      "url": "",
+      "desc": "GPU 直连存储 (GDS) 与 Phoenix 项目。",
+      "extra": [
+        {
+          "label": "Phoenix GDS（高性能存储）",
+          "url": "https://github.com/nicexlab/phoenix"
+        },
+        {
+          "label": "Phoenix Project",
+          "url": "https://github.com/gds-phoenix-project/phoenix"
+        }
+      ]
+    }
+  ]
+}
+];
+const TYPE_LABEL={module:"学习模块",doc:"文档",course:"课程",video:"视频",paper:"论文",repo:"仓库"};
+const esc=s=>String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+function pillClass(t){return "pill "+(TYPE_LABEL[t]?t:"module")}
+function renderNav(){
+  document.getElementById("navRoot").innerHTML='<div class="nav-group"><div class="nav-cat">学习方向</div>'+
+    window.__RESOURCES__.map(x=>'<a class="nav-item" data-target="'+x.id+'" href="#'+x.id+'"><span class="dot" style="background:'+x.color+'"></span>'+esc(x.name)+'</a>').join("")+'</div>';
+}
+function renderTopics(){
+  document.getElementById("topicsRoot").innerHTML=window.__RESOURCES__.map(g=>{
+    const rows=(()=>{let mi=0;return g.items.map(it=>{
+      const nameCell=it.url
+        ? '<a class="res-name" href="'+esc(it.url)+'" target="_blank" rel="noopener">'+esc(it.name)+'</a>'
+        : '<span class="res-name">'+esc(it.name)+'</span>';
+      const extra=(it.extra&&it.extra.length)?'<span class="res-extra">'+it.extra.map(e=>'<a href="'+esc(e.url)+'" target="_blank" rel="noopener">'+esc(e.label)+'</a>').join("")+'</span>':"";
+      const label=it.type==='module' ? '学习模块-'+String.fromCharCode(65+(mi++)) : (TYPE_LABEL[it.type]||it.type);
+      return '<tr><td class="col-type"><span class="'+pillClass(it.type)+'">'+label+'</span></td>'+
+             '<td class="col-desc">'+esc(it.desc)+'</td><td class="col-res">'+nameCell+extra+'</td></tr>';
+    }).join("");})();
+    return '<section class="topic" id="'+g.id+'"><h2><span style="color:'+g.color+'">◆</span> '+esc(g.name)+
+      ' <a class="anchor" href="#'+g.id+'" aria-label="链接到本节">#</a></h2>'+
+      (g.desc?'<p class="cat-desc">'+esc(g.desc)+'</p>':"")+
+      (g.links&&g.links.length?(function(){
+        var SRC_ORDER=['知乎','博客','博客园','B站','CSDN'];
+        var srcCls={'知乎':'src-zhihu','博客':'src-blog','博客园':'src-cnblogs','B站':'src-bili','CSDN':'src-csdn'};
+        var sorted=g.links.slice().sort(function(a,b){
+          var sa=a.label.split(' · ')[0], sb=b.label.split(' · ')[0];
+          return SRC_ORDER.indexOf(sa)-SRC_ORDER.indexOf(sb);
+        });
+        var html='<div class="cat-links">';
+        sorted.forEach(function(l){
+          var src=l.label.split(' · ')[0]||'';
+          var cls=srcCls[src]||'src-other';
+          var name=l.label.split(' · ')[1]||l.label;
+          if(l.url){
+            html+='<a class="clink '+cls+'" href="'+esc(l.url)+'" target="_blank" rel="noopener">'+
+                  '<i class="dot"></i><span class="src">'+esc(src)+'</span>'+esc(name)+' ↗</a>';
+          }else{
+            html+='<span class="clink link-todo '+cls+'"><i class="dot"></i><span class="src">'+esc(src)+'</span>'+esc(name)+'</span>';
+          }
+        });
+        return html+'</div>';
+      })():"")+
+      '<div class="tbl-wrap"><table><thead><tr><th class="col-type">类型</th><th>简介</th><th>资料 / 模块</th></tr></thead><tbody>'+rows+'</tbody></table></div></section>';
+  }).join("");
+  const total=window.__RESOURCES__.reduce((s,g)=>s+g.items.length,0);
+  document.getElementById("statChip").textContent="共 "+window.__RESOURCES__.length+" 个方向 · "+total+" 个模块/资源";
+  document.getElementById("catSummary").innerHTML=window.__RESOURCES__.map(g=>'<a href="#'+g.id+'">'+esc(g.name)+' <span style="opacity:.6">'+g.items.length+'</span></a>').join("");
+}
+function highlight(id){document.querySelectorAll(".nav-item").forEach(el=>el.classList.toggle("active",el.dataset.target===id))}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)highlight(e.target.id)}),{rootMargin:"-15% 0px -70% 0px"});
+function bind(){
+  document.querySelectorAll("section.topic").forEach(s=>io.observe(s));
+  document.getElementById("menuBtn").onclick=()=>{document.getElementById("sidebar").classList.add("open");document.getElementById("overlay").classList.add("show")};
+  document.getElementById("overlay").onclick=()=>{document.getElementById("sidebar").classList.remove("open");document.getElementById("overlay").classList.remove("show")};
+  document.getElementById("exportBtn").onclick=()=>{
+    const clone=document.documentElement.cloneNode(true);
+    clone.querySelectorAll("#exportBtn").forEach(el=>el.remove());
+    const html="<!DOCTYPE html>\n"+clone.outerHTML;
+    const blob=new Blob([html],{type:"text/html;charset=utf-8"});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement("a");
+    a.href=url;a.download="博客学习导览·知识地图.html";
+    document.body.appendChild(a);a.click();a.remove();
+    setTimeout(()=>URL.revokeObjectURL(url),1000);
+  };
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener("click",()=>{document.getElementById("sidebar").classList.remove("open");document.getElementById("overlay").classList.remove("show")}));
+}
+const html=document.documentElement,themeBtn=document.getElementById("themeBtn");
+function applyTheme(t){html.dataset.theme=t;themeBtn.textContent=t==="dark"?"🌙 暗色":"☀️ 浅色";try{localStorage.setItem("blog-nav-theme",t)}catch(e){}}
+themeBtn.onclick=()=>applyTheme(html.dataset.theme==="dark"?"light":"dark");
+let saved=null;try{saved=localStorage.getItem("blog-nav-theme")}catch(e){}
+applyTheme(saved||(window.matchMedia&&window.matchMedia("(prefers-color-scheme: light)").matches?"light":"dark"));
+renderNav();renderTopics();bind();
+highlight(window.__RESOURCES__[0].id);
+</script>
+
+</body></html>
